@@ -37,16 +37,16 @@ Packets are saved to your browser's **localStorage**, which means:
 
 To move data between devices, or to make changes permanent:
 
-- **Export** (bottom bar) downloads a `packets.json` backup.
-- **Import** loads a `packets.json` back in.
+- **Export** (bottom bar) downloads a `drink-packets.json` backup.
+- **Import** loads a `drink-packets.json` back in.
 
 ### Making your list the default
 
 If you want your current packets baked into the app itself (so any device or a cleared browser starts with them):
 
-1. Tap **Export** to get `packets.json`.
+1. Tap **Export** to get `drink-packets.json`.
 2. Open `index.html` and find the `const SEED = [ ... ]` array near the top of the `<script>`.
-3. Replace it with the contents of `packets.json` (the objects have the same fields — `id`/`added` are fine to leave in).
+3. Replace it with the contents of `drink-packets.json` (the objects have the same fields — `id`/`added` are fine to leave in).
 4. Commit the change.
 
 The app uses `SEED` only when the browser has no saved data yet, so this sets the fresh-start list.
