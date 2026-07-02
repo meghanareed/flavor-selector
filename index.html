@@ -104,6 +104,8 @@
   .toggle input:focus-visible + .track{box-shadow:0 0 0 3px var(--teal-soft)}
   .rng{width:100%;accent-color:var(--berry)}
   .rngval{font-family:"Baloo 2";color:var(--berry-deep)}
+  .toggle-block{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+  .toggle-col{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
   .clear{margin-left:auto;background:none;border:none;color:var(--berry-deep);font:inherit;font-weight:800;font-family:"Baloo 2";cursor:pointer;font-size:13px}
 
   /* Grid + cards */
@@ -225,13 +227,15 @@
         </select>
       </div>
     </div>
-    <div class="frow subrow">
-      <div class="field grow" style="min-width:180px">
-        <div class="flabel">Minimum rating · <span class="rngval" id="minRateVal">0</span></div>
-        <input class="rng" id="minRate" type="range" min="0" max="5" step="0.25" value="0" />
+    <div class="frow">
+      <div class="flabel">Minimum rating · <span class="rngval" id="minRateVal">0</span></div>
+      <input class="rng" id="minRate" type="range" min="0" max="5" step="0.25" value="0" />
+    </div>
+    <div class="frow toggle-block">
+      <div class="toggle-col">
+        <label class="toggle"><input type="checkbox" id="sugarFilter" /><span class="track"></span>Sugar free</label>
+        <label class="toggle"><input type="checkbox" id="dyeFilter" /><span class="track"></span>Dye free</label>
       </div>
-      <label class="toggle"><input type="checkbox" id="sugarFilter" /><span class="track"></span>Sugar free</label>
-      <label class="toggle"><input type="checkbox" id="dyeFilter" /><span class="track"></span>Dye free</label>
       <button class="clear" id="clearBtn">Reset</button>
     </div>
   </section>
