@@ -2,7 +2,18 @@
 
 A little mobile web app for rating drink packets (the powders and squeezes you dump in water), filtering them, and letting it randomly pick one for you.
 
-Single self-contained `index.html` — no build step, no dependencies. Drop it on GitHub Pages and it just runs.
+Plain `index.html` plus an icon set — no build step, no framework. Drop it on GitHub Pages and it just runs. Live at `https://meghanareed.github.io/flavor-selector/`.
+
+## Files
+
+| File | What it's for |
+|------|---------------|
+| `index.html` | The whole app (UI, logic, and seed data) |
+| `manifest.json` | Name, colors, and icons for "Add to Home Screen" |
+| `icon-180.png` | Home-screen icon for iOS |
+| `icon-192.png` / `icon-512.png` | Home-screen icon + PWA install for Android |
+
+All five live together in the repo root.
 
 ## What it does
 
@@ -42,9 +53,20 @@ The app uses `SEED` only when the browser has no saved data yet, so this sets th
 
 ## Publishing to GitHub Pages
 
-1. Create a repo and upload `index.html` (and this `README.md`).
-2. **Settings → Pages → Build and deployment → Deploy from a branch → `main` / `root`**.
-3. Give it a minute; your app will be live at `https://<username>.github.io/<repo>/`.
+1. Create a public repo and **Add file → Upload files**; drag in all five files (`index.html`, `manifest.json`, and the three `icon-*.png`).
+2. Commit, then go to **Settings → Pages → Deploy from a branch → `main` / `root`**.
+3. Give it ~60 seconds; the app goes live at `https://<username>.github.io/<repo>/`.
+
+## Updating
+
+Same drag-and-drop flow as the book app: **Add file → Upload files**, drop the changed file(s) in, and GitHub replaces the old ones on commit. Pages redeploys in ~30–60s. On your phone, close and reopen the app (or pull to refresh) to pick up the new version.
+
+## Add to Home Screen
+
+- **iOS (Safari):** Share → *Add to Home Screen*. Uses `icon-180.png`.
+- **Android (Chrome):** ⋮ menu → *Add to Home screen* / *Install app*. Uses the manifest + 192/512 icons.
+
+The icons are wired up in `index.html` (`apple-touch-icon` + `manifest`), so the custom soda-glass icon shows instead of a screenshot. If you swap the artwork, replace the three `icon-*.png` files (same names) — no HTML change needed. iOS caches icons hard, so after updating: delete the old shortcut, reopen the URL fresh, and re-add.
 
 ## Data shape
 
